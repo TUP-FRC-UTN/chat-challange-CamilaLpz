@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header text-bg-dark" [innerText]="'Usuario: '+ nombreUsuario">
+    </div>
+    <div class="card-body text-bg-light">
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 100px" [(ngModel)]="msj" [style.resize]="'none'"></textarea>
+            <label for="floatingTextarea2">Escribe un mensaje...</label>
+        </div>
+
+        <button type="button" class="btn btn-dark" [ngStyle]="{'margin-top': '10px'}"
+            (click)="comprobarMensaje()">Guardar</button>
+
+        <div class="alert alert-danger mt-3" role="alert" [style.display]="permitido ? 'none' : 'block'">
+            El mensaje no puede estar vacío
+        </div>
+    </div>
+</div>

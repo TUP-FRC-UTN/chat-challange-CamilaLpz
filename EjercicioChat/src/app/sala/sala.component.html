@@ -1,0 +1,31 @@
+<section>
+    <div class="row mb-3">
+      <div class="col">
+        <div class="card">
+            <h5 class="card-header text-bg-dark">
+                Sala de chat
+            </h5>
+            <div class="card-body text-bg-light">
+                <label [style.display]="historialChat.length == 0 ? 'block' : 'none'">Aún no hay mensajes!</label>
+                <ul class="list-group">
+                    
+                    @for (h of historialChat; track $index; let indice = $index) {
+                        <li class="list-group-item">
+                            <p class="mb-0">{{h.nombre + ': ' + h.mensaje}}</p>
+                            <p class="card-text"><small class="text-body-secondary">{{h.fechaHora | date:"dd/MM/yyyy HH:mm"}}</small></p>
+                        </li>
+                    }       
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      @for (user of usuarios; track $index) {
+        <div class="col">
+          <app-usuario [nombreUsuario]="user.nombre" (mensaje)="onGuardar($event)"></app-usuario>
+        </div>
+      }
+    </div>
+  </section>
